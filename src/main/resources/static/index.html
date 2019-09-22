@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="posts">
+<head>
+	<title>Task1</title>
+
+	<link rel="stylesheet" href="js/lib/dependencies/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="js/lib/dependencies/css/ng-grid.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+	<script src="js/lib/dependencies/angular.min.js"></script>
+	<script src="js/lib/dependencies/angular-resource.min.js"></script>
+	<script src="js/lib/dependencies/jquery.min.js"></script>
+	<script src="js/lib/dependencies/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/lib/dependencies/ng-grid.min.js"></script>
+
+	<script src="js/script/post.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<ul class="menu">
+		<li><a href="/task3">Task3</a></li>
+	</ul>
+</div>
+
+<h4>Posts app</h4>
+
+<br/>
+
+<section class="grid" ng-controller="postListController">
+	<div class="gridStyle" ng-grid="gridOptions"></div>
+	<pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+	<p>
+		total Items: {{totalItems}}<br />
+		Items per page: {{itemsPerPage}}<br />
+		Current Page: {{currentPage}}
+	</p>
+</section>
+
+<div class="form" ng-controller="commentsFormController">
+	<div ng-if="postId == null">
+		<h3>Select post</h3>
+	</div>
+	<div ng-if="postId != null">
+		<h3>Post [{{postTitle}}]</h3>
+	</div>
+
+	<div>
+		<form name="postsForm" novalidate>
+
+			<div ng-if="postId != null">
+				<div class="gridStyle" ng-grid="gridOptions"></div>
+			</div>
+
+			<div class="buttons">
+				<button type="button" class="btn btn-primary" ng-click="clearForm()">Clear</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>

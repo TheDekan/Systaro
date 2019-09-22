@@ -1,0 +1,44 @@
+buildscript {
+  ext {
+    springBootVersion = '2.0.6.RELEASE'
+    groovyVersion = '2.5.3'
+    jacksonVersion = '2.8.3'
+    junitVersion = '4.12'
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.salenko'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.11
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+  implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+  implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
+
+  implementation("org.codehaus.groovy:groovy:${groovyVersion}")
+
+  compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+  compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+  compile "org.codehaus.groovy:groovy-json:${groovyVersion}"
+
+  testCompile "junit:junit:${junitVersion}"
+
+
+}
+

@@ -1,0 +1,79 @@
+body {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.grid {
+    width: 40%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.grid .remove {
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+    color: #a94442;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    height: 635px;
+}
+
+.form {
+    width: 40%;
+    float: right;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+}
+
+.form .gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    height: 185px;
+}
+
+.form label {
+    width: 100px;
+}
+
+.form .buttons {
+    clear: both;
+    float: right;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.menu {
+    text-align: right;
+    list-style: none;
+    padding: 0 0 0.5em;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu>li {
+    display: inline;
+}
+
+.menu>li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu>li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}

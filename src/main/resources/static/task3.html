@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="mail">
+<head>
+	<title>Task3</title>
+
+	<link rel="stylesheet" href="js/lib/dependencies/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="js/lib/dependencies/css/ng-grid.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+	<script src="js/lib/dependencies/angular.min.js"></script>
+	<script src="js/lib/dependencies/angular-resource.min.js"></script>
+	<script src="js/lib/dependencies/jquery.min.js"></script>
+	<script src="js/lib/dependencies/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/lib/dependencies/ng-grid.min.js"></script>
+
+	<script src="js/script/mail.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+	<ul class="menu">
+		<li><a href="/">Task1</a></li>
+	</ul>
+</div>
+
+<div align="left">
+
+	<h4>Email validator</h4>
+
+	<form name="emailTestForm" data-ng-controller="emailController">
+		Email: <input type="email" name="input" ng-change="myFunc()" data-ng-model="mail" required>
+
+		<span data-ng-show="emailTestForm.input.$error.required">Required!</span>
+		<span data-ng-show="emailTestForm.input.$error.email">Not valid email!</span>
+		<span data-ng-show="emailTestForm.input.$valid">Valid email!</span>
+
+		<ng-if data-ng-show="emailTestForm.input.$valid">
+			<p>Email = {{mail}}</p>
+			<p>First part = {{part1}}</p>
+			<p>Second part = {{part2}}</p>
+			<p>Mail to = <a href={{mailTo}}>That was an easy Task, Systaro!</a></p>
+		</ng-if>
+</form>
+</div>
+
+</body>
+</html>
